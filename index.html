@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeHomes - Premium Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="simple-spinner"></div>
+        <p class="loader-text">Loading...</p>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="WeHomes">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        Property <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="lands.html"><i class="fas fa-mountain"></i> Lands</a></li>
+                        <li><a href="apartment.html"><i class="fas fa-building"></i> Apartments</a></li>
+                        <li><a href="house.html"><i class="fas fa-home"></i> Houses</a></li>
+                        <li><a href="buildings.html"><i class="fas fa-city"></i> Buildings</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sell.html">Rent/Sell</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Find Your Dream Property</h1>
+            <p class="hero-subtitle">Discover premium real estate opportunities in prime locations</p>
+            <a href="sell.html" class="btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Service Cards -->
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card" data-animate="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Buy a Property</h3>
+                    <p>Explore our extensive collection of premium properties</p>
+                </div>
+                <div class="service-card" data-animate="card">
+                    <div class="card-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>Sell a Property</h3>
+                    <p>List your property and reach thousands of potential buyers</p>
+                </div>
+                <div class="service-card" data-animate="card">
+                    <div class="card-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Rent a Property</h3>
+                    <p>Find the perfect rental that suits your lifestyle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="2500">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years in Industry</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="850">0</div>
+                    <div class="stat-label">Available Properties</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest property updates and exclusive offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="WeHomes">
+                    </div>
+                    <br>
+                    <p>Your trusted partner in finding the perfect property</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sell.html">Rent/Sell</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="house.html">Houses</a></li>
+                        <li><a href="apartment.html">Apartments</a></li>
+                        <li><a href="lands.html">Lands</a></li>
+                        <li><a href="buildings.html">Buildings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +94 11 234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@wehomes.lk</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Colombo 03, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WeHomes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h4>Chat with Us</h4>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message bot">
+                <p>Hello! How can we help you today?</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

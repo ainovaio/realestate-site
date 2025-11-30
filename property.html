@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - WeHomes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    .property-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        background: #2A2A2A;
+        color: #FFFFFF;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(199, 152, 79, 0.3);
+        text-decoration: none;
+    }
+
+    .back-button:hover {
+        background: #C7984F;
+        color: #151515;
+        border-color: #C7984F;
+        transform: translateX(-5px);
+    }
+
+    .back-button i {
+        font-size: 16px;
+    }
+
+    .close-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: #2A2A2A;
+        color: #B0B0B0;
+        border-radius: 50%;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(199, 152, 79, 0.3);
+        text-decoration: none;
+    }
+
+    .close-button:hover {
+        background: #e74c3c;
+        color: #FFFFFF;
+        border-color: #e74c3c;
+        transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+        .property-detail-header {
+            gap: 15px;
+        }
+        
+        .back-button {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+        
+        .close-button {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .back-button {
+            font-size: 13px;
+            padding: 10px 16px;
+            gap: 6px;
+        }
+        
+        .back-button i {
+            font-size: 14px;
+        }
+        
+        .close-button {
+            width: 38px;
+            height: 38px;
+            font-size: 16px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="simple-spinner"></div>
+        <p class="loader-text">Loading...</p>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="WeHomes">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        Property <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="lands.html"><i class="fas fa-mountain"></i> Lands</a></li>
+                        <li><a href="apartment.html"><i class="fas fa-building"></i> Apartments</a></li>
+                        <li><a href="house.html"><i class="fas fa-home"></i> Houses</a></li>
+                        <li><a href="buildings.html"><i class="fas fa-city"></i> Buildings</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sell.html">Rent/Sell</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Property Detail Section -->
+    <section class="property-detail">
+        <div class="container">
+            <div class="property-detail-header">
+                <!-- Back Button -->
+                <a href="#" class="back-button" id="backButton">
+                    <i class="fas fa-arrow-left"></i> Back to Listings
+                </a>
+                
+                <!-- Close Button -->
+                <a href="#" class="close-button" id="closeButton" title="Close">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+            <!-- Back/Close Button Section - END -->
+            <div class="property-detail-grid">
+                <!-- Image Gallery -->
+                <div class="property-gallery">
+                    <div class="gallery-main">
+                        <div class="gallery-slide active">
+                            <img src="images/property1.webp" alt="Property Image 1" id="mainImage">
+                        </div>
+                        <button class="gallery-btn prev" onclick="changePropertyImage(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-btn next" onclick="changePropertyImage(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-thumbs">
+                        <img src="images/property1.webp" alt="Thumb 1" class="active" onclick="setPropertyImage(0)">
+                        <img src="images/property2.webp" alt="Thumb 2" onclick="setPropertyImage(1)">
+                    </div>
+                </div>
+
+                <!-- Property Info -->
+                <div class="property-info">
+                    <div class="property-header">
+                        <h1 id="propertyTitle">Modern Luxury Villa</h1>
+                        <div class="property-price-large">Rs. 85,000,000</div>
+                        <div class="property-status">
+                            <span class="status-badge available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="property-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <small>Posted</small>
+                                <strong>2 days ago</strong>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <small>Listed on</small>
+                                <strong>Nov 26, 2024</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-features-detail">
+                        <h3>Property Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-box">
+                                <i class="fas fa-bed"></i>
+                                <span>5 Bedrooms</span>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fas fa-bath"></i>
+                                <span>4 Bathrooms</span>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>4500 sq ft</span>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fas fa-car"></i>
+                                <span>2 Parking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-description">
+                        <h3>Description</h3>
+                        <p>Exquisite modern luxury villa located in the heart of Colombo 07. This stunning property features contemporary architecture, high-end finishes, and spacious living areas perfect for family living. The villa includes a beautiful garden, swimming pool, and modern security systems.</p>
+                        <p>Key highlights include marble flooring, Italian kitchen, smart home features, and panoramic city views from the master suite.</p>
+                    </div>
+
+                    <div class="property-location-detail">
+                        <h3>Location</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Colombo 07, Sri Lanka</p>
+                        <div class="location-highlights">
+                            <span><i class="fas fa-school"></i> Near International School</span>
+                            <span><i class="fas fa-hospital"></i> 5 min to Hospital</span>
+                            <span><i class="fas fa-shopping-cart"></i> Close to Shopping Malls</span>
+                        </div>
+                    </div>
+
+                    <div class="property-contact">
+                        <button class="btn-contact" onclick="showContactModal()">
+                            <i class="fas fa-phone"></i> Contact Agent
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-heart"></i> Save Property
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Contact Information</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Phone</strong>
+                        <p>+94 77 123 4567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <p>agent@wehomes.lk</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <strong>Agent</strong>
+                        <p>Nimal Perera</p>
+                    </div>
+                </div>
+            </div>
+            <a href="tel:+94771234567" class="btn-primary btn-full">
+                <i class="fas fa-phone"></i> Call Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>WeHomes</h4>
+                    <p>Your trusted partner in finding the perfect property</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sell.html">Rent/Sell</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="house.html">Houses</a></li>
+                        <li><a href="apartment.html">Apartments</a></li>
+                        <li><a href="lands.html">Lands</a></li>
+                        <li><a href="buildings.html">Buildings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +94 11 234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@wehomes.lk</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Colombo 03, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WeHomes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h4>Chat with Us</h4>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message bot">
+                <p>Hello! How can we help you today?</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Back and Close button functionality
+        document.getElementById('backButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.history.back();
+        });
+
+        document.getElementById('closeButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.history.back();
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

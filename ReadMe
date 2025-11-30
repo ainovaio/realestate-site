@@ -1,0 +1,32 @@
+wehomes-website/
+│
+├── index.html
+├── house.html  
+├── apartment.html
+├── lands.html
+├── buildings.html
+├── property.html
+├── about.html
+├── contact.html
+├── sell.html
+│
+├── styles.css         ← Link these 4 CSS files
+├── styles2.css        ← in all HTML pages
+├── styles3.css        ← in <head> section
+├── styles4.css        ← in this order
+│
+├── script.js
+│
+└── images/
+    ├── logo.png (200x60px)
+    ├── hero-bg.webp (1920x1080px)
+    ├── house-hero1-3.webp (1920x1080px each)
+    ├── apartment-hero1-3.webp (1920x1080px each)
+    ├── land-hero1-3.webp (1920x1080px each)
+    ├── building-hero1-3.webp (1920x1080px each)
+    ├── house1-8.webp (800x600px each)
+    ├── apartment1-8.webp (800x600px each)
+    ├── land1-8.webp (800x600px each)
+    ├── building1-8.webp (800x600px each)
+    ├── property1-2.webp (1200x800px each)
+    └── about-company.webp (800x600px)

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property - WeHomes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="simple-spinner"></div>
+        <p class="loader-text">Loading...</p>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="WeHomes">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        Property <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="lands.html"><i class="fas fa-mountain"></i> Lands</a></li>
+                        <li><a href="apartment.html"><i class="fas fa-building"></i> Apartments</a></li>
+                        <li><a href="house.html"><i class="fas fa-home"></i> Houses</a></li>
+                        <li><a href="buildings.html"><i class="fas fa-city"></i> Buildings</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sell.html" class="active">Rent/Sell</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sell Hero -->
+    <section class="sell-hero">
+        <div class="container">
+            <h1>List Your Property</h1>
+            <p>Reach thousands of potential buyers and renters</p>
+        </div>
+    </section>
+
+    <!-- Listing Form -->
+    <section class="listing-form-section">
+        <div class="container">
+            <div class="form-header">
+                <h2>Property Details</h2>
+                <p>Fill in the information below to list your property. Our team will review and contact you shortly.</p>
+            </div>
+
+            <form class="listing-form" id="listingForm">
+                <!-- Property Type -->
+                <div class="form-section">
+                    <h3><i class="fas fa-home"></i> Property Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="propertyType">Property Type *</label>
+                            <select id="propertyType" name="propertyType" required>
+                                <option value="">Select property type</option>
+                                <option value="house">House</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="land">Land</option>
+                                <option value="building">Building</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="listingType">Listing Type *</label>
+                            <select id="listingType" name="listingType" required>
+                                <option value="">Select listing type</option>
+                                <option value="sale">For Sale</option>
+                                <option value="rent">For Rent</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyTitle">Property Title *</label>
+                        <input type="text" id="propertyTitle" name="propertyTitle" placeholder="e.g., Modern 3BR House in Colombo 07" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" rows="5" placeholder="Describe your property, its features, and highlights..." required></textarea>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="form-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="district">District *</label>
+                            <select id="district" name="district" required>
+                                <option value="">Select district</option>
+                                <option value="colombo">Colombo</option>
+                                <option value="gampaha">Gampaha</option>
+                                <option value="kalutara">Kalutara</option>
+                                <option value="kandy">Kandy</option>
+                                <option value="matale">Matale</option>
+                                <option value="nuwara-eliya">Nuwara Eliya</option>
+                                <option value="galle">Galle</option>
+                                <option value="matara">Matara</option>
+                                <option value="hambantota">Hambantota</option>
+                                <option value="jaffna">Jaffna</option>
+                                <option value="kilinochchi">Kilinochchi</option>
+                                <option value="mannar">Mannar</option>
+                                <option value="vavuniya">Vavuniya</option>
+                                <option value="mullaitivu">Mullaitivu</option>
+                                <option value="batticaloa">Batticaloa</option>
+                                <option value="ampara">Ampara</option>
+                                <option value="trincomalee">Trincomalee</option>
+                                <option value="kurunegala">Kurunegala</option>
+                                <option value="puttalam">Puttalam</option>
+                                <option value="anuradhapura">Anuradhapura</option>
+                                <option value="polonnaruwa">Polonnaruwa</option>
+                                <option value="badulla">Badulla</option>
+                                <option value="monaragala">Monaragala</option>
+                                <option value="ratnapura">Ratnapura</option>
+                                <option value="kegalle">Kegalle</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City/Area *</label>
+                            <input type="text" id="city" name="city" placeholder="e.g., Colombo 07" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Full Address</label>
+                        <input type="text" id="address" name="address" placeholder="Street address (optional)">
+                    </div>
+                </div>
+
+                <!-- Property Details -->
+                <div class="form-section">
+                    <h3><i class="fas fa-info-circle"></i> Property Details</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bedrooms">Bedrooms</label>
+                            <input type="number" id="bedrooms" name="bedrooms" min="0" placeholder="Number of bedrooms">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bathrooms">Bathrooms</label>
+                            <input type="number" id="bathrooms" name="bathrooms" min="0" placeholder="Number of bathrooms">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="landSize">Land Size (Perches)</label>
+                            <input type="number" id="landSize" name="landSize" min="0" step="0.01" placeholder="Land size">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="floorArea">Floor Area (sq ft)</label>
+                            <input type="number" id="floorArea" name="floorArea" min="0" placeholder="Built-up area">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price (Rs) *</label>
+                        <input type="number" id="price" name="price" min="0" placeholder="e.g., 50000000" required>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Contact Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ownerName">Full Name *</label>
+                            <input type="text" id="ownerName" name="ownerName" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerEmail">Email *</label>
+                            <input type="email" id="ownerEmail" name="ownerEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ownerPhone">Phone Number *</label>
+                            <input type="tel" id="ownerPhone" name="ownerPhone" placeholder="+94 77 123 4567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerPhone2">Alternative Phone</label>
+                            <input type="tel" id="ownerPhone2" name="ownerPhone2" placeholder="+94 11 234 5678">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Images -->
+                <div class="form-section">
+                    <h3><i class="fas fa-images"></i> Property Images</h3>
+                    <p class="form-note">Upload up to 5 high-quality images of your property</p>
+                    
+                    <div class="file-upload-container">
+                        <div class="file-upload-box">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <span>PNG, JPG or WEBP (Max 5 files, 5MB each)</span>
+                            <input type="file" id="propertyImages" name="propertyImages" accept="image/*" multiple>
+                        </div>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+                </div>
+
+                <!-- Additional Features -->
+                <div class="form-section">
+                    <h3><i class="fas fa-list-check"></i> Additional Features</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="features" value="parking">
+                            <span>Parking</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="features" value="garden">
+                            <span>Garden</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="features" value="pool">
+                            <span>Swimming Pool</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="features" value="security">
+                            <span>Security</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="features" value="ac">
+                            <span>Air Conditioning</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="features" value="furnished">
+                            <span>Furnished</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i> Submit Listing
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Listing Submitted Successfully!</h2>
+            <p>Thank you for listing your property with WeHomes. Our team will review your submission and contact you within 24-48 hours.</p>
+            
+            <div class="contact-info-modal">
+                <h4>Our Contact Details:</h4>
+                <p><i class="fas fa-phone"></i> +94 11 234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@wehomes.lk</p>
+                <p><i class="fas fa-map-marker-alt"></i> Colombo 03, Sri Lanka</p>
+            </div>
+
+            <button class="btn-primary" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="WeHomes">
+                    </div>
+                    <br>
+                    <p>Your trusted partner in finding the perfect property</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sell.html">Rent/Sell</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="house.html">Houses</a></li>
+                        <li><a href="apartment.html">Apartments</a></li>
+                        <li><a href="lands.html">Lands</a></li>
+                        <li><a href="buildings.html">Buildings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +94 11 234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@wehomes.lk</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Colombo 03, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WeHomes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h4>Chat with Us</h4>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message bot">
+                <p>Hello! How can we help you today?</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

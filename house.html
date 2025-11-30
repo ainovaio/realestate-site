@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houses - WeHomes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="simple-spinner"></div>
+        <p class="loader-text">Loading...</p>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="WeHomes">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active">
+                        Property <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="lands.html"><i class="fas fa-mountain"></i> Lands</a></li>
+                        <li><a href="apartment.html"><i class="fas fa-building"></i> Apartments</a></li>
+                        <li><a href="house.html"><i class="fas fa-home"></i> Houses</a></li>
+                        <li><a href="buildings.html"><i class="fas fa-city"></i> Buildings</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sell.html">Rent/Sell</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Image Carousel -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="images/house-hero1.webp" alt="Luxury Houses">
+                <div class="carousel-overlay">
+                    <h1>Premium Houses</h1>
+                    <p>Find your dream home in the best locations</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/house-hero2.webp" alt="Modern Houses">
+                <div class="carousel-overlay">
+                    <h1>Modern Living Spaces</h1>
+                    <p>Contemporary designs with luxury amenities</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/house-hero3.webp" alt="Family Houses">
+                <div class="carousel-overlay">
+                    <h1>Perfect Family Homes</h1>
+                    <p>Spacious properties for your family's comfort</p>
+                </div>
+            </div>
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                    <select id="locationFilter">
+                        <option value="">All Districts</option>
+                        <option value="colombo">Colombo</option>
+                        <option value="gampaha">Gampaha</option>
+                        <option value="kalutara">Kalutara</option>
+                        <option value="kandy">Kandy</option>
+                        <option value="matale">Matale</option>
+                        <option value="nuwara-eliya">Nuwara Eliya</option>
+                        <option value="galle">Galle</option>
+                        <option value="matara">Matara</option>
+                        <option value="hambantota">Hambantota</option>
+                        <option value="jaffna">Jaffna</option>
+                        <option value="kilinochchi">Kilinochchi</option>
+                        <option value="mannar">Mannar</option>
+                        <option value="vavuniya">Vavuniya</option>
+                        <option value="mullaitivu">Mullaitivu</option>
+                        <option value="batticaloa">Batticaloa</option>
+                        <option value="ampara">Ampara</option>
+                        <option value="trincomalee">Trincomalee</option>
+                        <option value="kurunegala">Kurunegala</option>
+                        <option value="puttalam">Puttalam</option>
+                        <option value="anuradhapura">Anuradhapura</option>
+                        <option value="polonnaruwa">Polonnaruwa</option>
+                        <option value="badulla">Badulla</option>
+                        <option value="monaragala">Monaragala</option>
+                        <option value="ratnapura">Ratnapura</option>
+                        <option value="kegalle">Kegalle</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label><i class="fas fa-bed"></i> Bedrooms</label>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="decrementCounter('bedrooms')">-</button>
+                        <input type="number" id="bedrooms" value="0" min="0" readonly>
+                        <button class="counter-btn" onclick="incrementCounter('bedrooms')">+</button>
+                    </div>
+                </div>
+                <div class="filter-item">
+                    <label><i class="fas fa-bath"></i> Bathrooms</label>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="decrementCounter('bathrooms')">-</button>
+                        <input type="number" id="bathrooms" value="0" min="0" readonly>
+                        <button class="counter-btn" onclick="incrementCounter('bathrooms')">+</button>
+                    </div>
+                </div>
+                <div class="filter-item">
+                    <label><i class="fas fa-dollar-sign"></i> Price Range</label>
+                    <div class="price-display">
+                        <span id="priceRangeDisplay">Any Price</span>
+                    </div>
+                </div>
+                <div class="filter-item">
+                    <label><i class="fas fa-filter"></i> Category</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="category" value="sale" checked>
+                            <span>Sale</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="category" value="rent">
+                            <span>Rent</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Listings -->
+    <section class="listings">
+        <div class="container">
+            <div class="listings-grid">
+                <!-- Property Card 1 -->
+                <a href="property.html?id=house1" class="property-card">
+                    <div class="property-tag sale">For Sale</div>
+                    <div class="property-image">
+                        <img src="images/house1.webp" alt="Luxury Villa">
+                    </div>
+                    <div class="property-details">
+                        <h3>Modern Luxury Villa</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 5</span>
+                            <span><i class="fas fa-bath"></i> 4</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Colombo 07</span>
+                        </div>
+                        <div class="property-price">Rs. 85,000,000</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 2 -->
+                <a href="property.html?id=house2" class="property-card">
+                    <div class="property-tag rent">For Rent</div>
+                    <div class="property-image">
+                        <img src="images/house2.webp" alt="Contemporary House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Contemporary Family Home</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4</span>
+                            <span><i class="fas fa-bath"></i> 3</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Kandy</span>
+                        </div>
+                        <div class="property-price">Rs. 180,000/mo</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 3 -->
+                <a href="property.html?id=house3" class="property-card">
+                    <div class="property-tag sale">For Sale</div>
+                    <div class="property-image">
+                        <img src="images/house3.webp" alt="Colonial House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Colonial Style Mansion</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 6</span>
+                            <span><i class="fas fa-bath"></i> 5</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Galle</span>
+                        </div>
+                        <div class="property-price">Rs. 120,000,000</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 4 -->
+                <a href="property.html?id=house4" class="property-card">
+                    <div class="property-tag sale">For Sale</div>
+                    <div class="property-image">
+                        <img src="images/house4.webp" alt="Beach House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Beachfront Paradise</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4</span>
+                            <span><i class="fas fa-bath"></i> 4</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Negombo</span>
+                        </div>
+                        <div class="property-price">Rs. 95,000,000</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 5 -->
+                <a href="property.html?id=house5" class="property-card">
+                    <div class="property-tag rent">For Rent</div>
+                    <div class="property-image">
+                        <img src="images/house5.webp" alt="Garden House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Spacious Garden House</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3</span>
+                            <span><i class="fas fa-bath"></i> 2</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Kegalle</span>
+                        </div>
+                        <div class="property-price">Rs. 120,000/mo</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 6 -->
+                <a href="property.html?id=house6" class="property-card">
+                    <div class="property-tag sale">For Sale</div>
+                    <div class="property-image">
+                        <img src="images/house6.webp" alt="Modern House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Ultra-Modern Residence</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 5</span>
+                            <span><i class="fas fa-bath"></i> 4</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Colombo 05</span>
+                        </div>
+                        <div class="property-price">Rs. 78,000,000</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 7 -->
+                <a href="property.html?id=house7" class="property-card">
+                    <div class="property-tag rent">For Rent</div>
+                    <div class="property-image">
+                        <img src="images/house7.webp" alt="Suburban House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Peaceful Suburban Home</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3</span>
+                            <span><i class="fas fa-bath"></i> 2</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Gampaha</span>
+                        </div>
+                        <div class="property-price">Rs. 95,000/mo</div>
+                    </div>
+                </a>
+
+                <!-- Property Card 8 -->
+                <a href="property.html?id=house8" class="property-card">
+                    <div class="property-tag sale">For Sale</div>
+                    <div class="property-image">
+                        <img src="images/house8.webp" alt="Hill Country House">
+                    </div>
+                    <div class="property-details">
+                        <h3>Hill Country Retreat</h3>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4</span>
+                            <span><i class="fas fa-bath"></i> 3</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Nuwara Eliya</span>
+                        </div>
+                        <div class="property-price">Rs. 65,000,000</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="WeHomes">
+                    </div>
+                    <br>
+                    <p>Your trusted partner in finding the perfect property</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sell.html">Rent/Sell</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="house.html">Houses</a></li>
+                        <li><a href="apartment.html">Apartments</a></li>
+                        <li><a href="lands.html">Lands</a></li>
+                        <li><a href="buildings.html">Buildings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +94 11 234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@wehomes.lk</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Colombo 03, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WeHomes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h4>Chat with Us</h4>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message bot">
+                <p>Hello! How can we help you today?</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
